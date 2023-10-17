@@ -68,8 +68,8 @@ namespace Lab3
                                                                       validCart.Price,
                                                                       validCart.Quantity,
                                                                       validCart.Address,
-                                                                      validCart.Price.Value*validCart.Quantity.Value));
-                return new CalculatedFinalPrice(calculatedCart.ToList().AsReadOnly());
+                                                                      decimal.Multiply(validCart.Price.Value, validCart.Quantity.Value)));
+                return new CalculatedCart(calculatedCart.ToList().AsReadOnly());
             }
         );
 

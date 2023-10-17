@@ -11,7 +11,7 @@ namespace Lab3
         public decimal Value { get; }
         private static readonly Random random = new Random();
 
-        public Quantity(int value)
+        public Quantity(decimal value)
         {
             if (value>0 && value<random.Next(100))
             {
@@ -25,7 +25,7 @@ namespace Lab3
 
         public Quantity Round()
         {
-            var roundedValue = Math.Round(Value);
+            decimal roundedValue = Math.Round(Value);
             return new Quantity(roundedValue);
         }
 
@@ -43,7 +43,7 @@ namespace Lab3
                 if (numericQuantity>0 && numericQuantity<1000)
                 {
                     isValid = true;
-                    quantity = new(numericQuantity);
+                    quantity = new Quantity(numericQuantity);
                 }
             }
 

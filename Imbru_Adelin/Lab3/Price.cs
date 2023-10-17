@@ -10,7 +10,7 @@ namespace Lab3
     {
         public decimal Value { get; }
 
-        public Price(int value)
+        public Price(decimal value)
         {
             if (value>0 && value<1000)
             {
@@ -23,7 +23,7 @@ namespace Lab3
 
         public Price Round()
         {
-            var roundedValue = Math.Round(Value);
+            decimal roundedValue = Math.Round(Value);
             return new Price(roundedValue);
         }
 

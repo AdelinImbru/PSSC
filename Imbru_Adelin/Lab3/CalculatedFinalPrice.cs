@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public record CalculatedFinalPrice(ProductCode ProductCode, Price Price, Quantity Quantity, Address Address, int FinalPrice);
+    public record CalculatedFinalPrice(ProductCode ProductCode, Price Price, Quantity Quantity, Address Address, decimal FinalPrice);
 }
