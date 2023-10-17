@@ -54,9 +54,9 @@ namespace Lab3
             public IReadOnlyCollection<CalculatedFinalPrice> ProductList { get; }
         }
 
-        public record PayedCart : ICart
+        public record PaidCart : ICart
         {
-            internal PayedCart(IReadOnlyCollection<CalculatedFinalPrice> productsList, string csv, DateTime paymentDate)
+            internal PaidCart(IReadOnlyCollection<CalculatedFinalPrice> productsList, string csv, DateTime paymentDate)
             {
                 ProductList = productsList;
                 PaymentDate = paymentDate;

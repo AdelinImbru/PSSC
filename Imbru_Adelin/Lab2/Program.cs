@@ -16,7 +16,7 @@ namespace Lab2
             ICart result = ValidateCart(emptyCart);
             result.Match(
                 whenEmptyCart: emptyResult => emptyCart,
-                whenPayedCart: payedResult => payedResult,
+                whenPaidCart: paidResult => paidResult,
                 whenInvalidatedCart: invalidResult => invalidResult,
                 whenValidatedCart: validatedResult => PayCart(validatedResult)
             );
@@ -52,7 +52,7 @@ namespace Lab2
             : new ValidatedCart(new List<ValidatedProduct>());
 
         private static ICart PayCart(ValidatedCart validCart) =>
-            new PayedCart(new List<ValidatedProduct>(), DateTime.Now);
+            new PaidCart(new List<ValidatedProduct>(), DateTime.Now);
 
         private static string? ReadValue(string prompt)
         {

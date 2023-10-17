@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Lab3
 {
     [AsChoice]
-    public static partial class CartPayedEvent
+    public static partial class CartPaidEvent
     {
-        public interface ICartPayedEvent { }
+        public interface ICartPaidEvent { }
 
-        public record CartPaySucceededEvent : ICartPayedEvent 
+        public record CartPaySucceededEvent : ICartPaidEvent 
         {
             public string Csv{ get;}
             public DateTime PaymentDate { get; }
@@ -24,7 +24,7 @@ namespace Lab3
             }
         }
 
-        public record CartPayFailedEvent : ICartPayedEvent 
+        public record CartPayFailedEvent : ICartPaidEvent 
         {
             public string Reason { get; }
 

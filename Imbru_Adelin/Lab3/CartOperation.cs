@@ -60,7 +60,7 @@ namespace Lab3
             whenEmptyCart: emptyCart => emptyCart,
             whenInvalidatedCart: invalidCart => invalidCart,
             whenCalculatedCart: calculatedCart => calculatedCart,
-            whenPayedCart: payedCart => payedCart,
+            whenPaidCart: paidCart => paidCart,
             whenValidatedCart: validCart =>
             {
                 var calculatedCart = validCart.ProductList.Select(validCart =>
@@ -77,15 +77,15 @@ namespace Lab3
             whenEmptyCart: emptyCart => emptyCart,
             whenInvalidatedCart: invalidCart => invalidCart,
             whenValidatedCart: validatedCart => validatedCart,
-            whenPayedCart: payedCart => payedCart,
+            whenPaidCart: paidCart => paidCart,
             whenCalculatedCart: calculatedCart =>
             {
                 StringBuilder csv = new();
                 calculatedCart.ProductList.Aggregate(csv, (export, cart) => export.AppendLine($"{cart.ProductCode.Value}, {cart.Quantity}, {cart.Price}, {cart.Address}, {cart.FinalPrice}"));
 
-                PayedCart payedCart = new(calculatedCart.ProductList, csv.ToString(), DateTime.Now);
+                PaidCart paidCart = new(calculatedCart.ProductList, csv.ToString(), DateTime.Now);
 
-                return payedCart;
+                return paidCart;
             });
     }
 }

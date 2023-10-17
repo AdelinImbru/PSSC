@@ -17,6 +17,6 @@ namespace Lab2{
 
         public record ValidatedCart(IReadOnlyCollection<ValidatedProduct> ProductsList) : ICart;
 
-        public record PayedCart(IReadOnlyCollection<ValidatedProduct> ProductsList, DateTime PublishedDate) : ICart;
+        public record PaidCart(IReadOnlyCollection<ValidatedProduct> ProductsList, DateTime PublishedDate) : ICart;
     }
 }
