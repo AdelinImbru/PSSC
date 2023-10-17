@@ -29,5 +29,18 @@ namespace Lab3
         {
             return Value;
         }
+
+        public static bool TryParseProductCode(string productCodeString, out ProductCode productCode)
+        {
+            bool isValid = false;
+            productCode = null;
+            if (ValidPattern.IsMatch(productCodeString))
+                {
+                    isValid = true;
+                    productCode = new(productCodeString);
+                }
+
+            return isValid;
+        }
     }
 }

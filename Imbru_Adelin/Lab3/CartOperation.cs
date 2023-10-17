@@ -16,32 +16,26 @@ namespace Lab3
             string invalidReson = string.Empty;
             foreach(var unvalidatedProduct in cart.ProductList)
             {
-                if (!Product.TryParseProduct(unvalidatedProduct.Cart, out Product cart))
-                {
-                    invalidReson = $"Invalid cart ({unvalidatedProduct.ProductCode}, {unvalidatedGrade.Cart})";
-                    isValidList = false;
-                    break;
-                }
-                if (!Product.TryParseProduct(unvalidatedProduct.ProductCode, out ProductCode productCode)
-                    && checkProductCodeExists(productCode))
+                if (!ProductCode.TryParseProductCode(unvalidatedProduct.ProductCode, out ProductCode productCode)
+                    && checkProductExists(productCode))
                 {
                     invalidReson = $"Invalid product code ({unvalidatedProduct.ProductCode})";
                     isValidList = false;
                     break;
                 }
-                if (!Product.TryParseProduct(unvalidatedProduct.Quantity, out Product Quantity))
+                if (!Quantity.TryParseQuantity(unvalidatedProduct.Quantity, out Quantity quantity))
                 {
                     invalidReson = $"Invalid quantity ({unvalidatedProduct.ProductCode}, {unvalidatedProduct.Quantity})";
                     isValidList = false;
                     break;
                 }
-                if (!Product.TryParseProduct(unvalidatedProduct.Price, out Product Price))
+                if (!Price.TryParsePrice(unvalidatedProduct.Price, out Price price))
                 {
                     invalidReson = $"Invalid price ({unvalidatedProduct.ProductCode}, {unvalidatedProduct.Price})";
                     isValidList = false;
                     break;
                 }
-                if (!Product.TryParseProduct(unvalidatedProduct.Address, out Address address))
+                if (!Address.TryParseAddress(unvalidatedProduct.Address, out Address address))
                 {
                     invalidReson = $"Invalid address ({unvalidatedProduct.Address})";
                     isValidList = false;
@@ -53,7 +47,7 @@ namespace Lab3
 
             if (isValidList)
             {
-                return new ValidatedProduct(validatedProducts);
+                return new ValidatedCart(validatedProducts);
             }
             else
             {

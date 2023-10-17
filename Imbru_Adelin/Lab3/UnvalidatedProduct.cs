@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public record UnvalidatedProduct(string ProductCode, string Quantity, decimal Price, string Address);
+    public record UnvalidatedProduct(string ProductCode, string Quantity, string Price, string Address);
 }

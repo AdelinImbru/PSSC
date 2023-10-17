@@ -27,5 +27,18 @@ namespace Lab3
         {
             return $"Address: {Value}";
         }
+
+        public static bool TryParseAddress(string addressString, out Address address)
+        {
+            bool isValid = false;
+            address = null;
+            if (random.Next(100)>50)
+                {
+                    isValid = true;
+                    address = new(addressString);
+                }
+
+            return isValid;
+        }
     }
 }

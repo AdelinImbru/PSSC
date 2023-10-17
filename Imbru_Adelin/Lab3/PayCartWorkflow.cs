@@ -10,9 +10,9 @@ namespace Lab3
         public ICartPayedEvent Execute(PayCartCommand command, Func<ProductCode, bool> checkProductExists)
         {
             EmptyCart emptyCart = new EmptyCart(command.InputCart);
-            ICart cart = ValidateCart(checkProductExists, emptyCart);
+            ICart products = ValidateCart(checkProductExists, emptyCart);
             products = CalculateFinalPrice(products);
-            products = PayedCart(products);
+            products = PayCart(products);
 
             return products.Match(
                     whenEmptyCart: emptyCart => new CartPayFailedEvent("Unexpected unvalidated state") as ICartPayedEvent,
