@@ -8,4 +8,9 @@ public record Product
         }
         public string ProductCode { get; set; }
         public IQuantity Quantity { get; set; }
+
+        public void print()
+        {
+            Console.WriteLine("Product code=" + ProductCode + " " + "Quantity=" + Quantity + "\n");
+        }
     }
